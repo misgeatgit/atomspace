@@ -1,0 +1,30 @@
+INCLUDE_DIRECTORIES(${CMAKE_BINARY_DIR})
+
+SET(ATOMSPACE_LIBRARIES smob atomspace clearbox ruleengine)
+#Compile
+ADD_EXECUTABLE(crudexample
+	CRUDExample
+	)
+TARGET_LINK_LIBRARIES(crudexample
+	${ATOMSPACE_LIBRARIES}
+	)
+
+INCLUDE_DIRECTORIES(${GUILE_INCLUDE_DIR})
+
+ADD_EXECUTABLE(ureexample
+	UREExample
+	)
+TARGET_LINK_LIBRARIES(ureexample
+	${COGUTIL_LIBRARY}
+	${ATOMSPACE_LIBRARIES}
+	)
+
+
+IF(Boost_FOUND)
+	ADD_EXECUTABLE(aseventsexample
+		AtomSpaceEventsExample
+		)
+	TARGET_LINK_LIBRARIES(aseventsexample
+		${ATOMSPACE_LIBRARIES}
+		)
+ENDIF(Boost_FOUND)
