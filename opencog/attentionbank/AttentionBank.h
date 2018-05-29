@@ -75,6 +75,11 @@ class AttentionBank
     AtomPtrSignal* _remove_signal;
     int _remove_connection;
 
+    // Defined in opencog repo's attention module. We want to
+    // to set fund and target sti values flexibly. Since no other
+    // subsystem is supposed to access these variables, our only
+    // way seems to be making the AttentionModule a friend class.
+    friend class AttentionModule;
     /**
      * Signal emitted when an atom crosses in or out of the
      * AttentionalFocus.
