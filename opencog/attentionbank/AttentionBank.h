@@ -201,6 +201,10 @@ public:
      */
     AttentionValue::lti_t getLTIFunds() const { return fundsLTI; }
 
+    AttentionValue::sti_t getTargetSTI() const { return targetSTI; }
+
+    AttentionValue::sti_t getTargetLTI() const { return targetLTI; }
+
     AttentionValue::sti_t getSTIFundsBuffer(){ return stiFundsBuffer;}
 
     AttentionValue::lti_t getLTIFundsBuffer(){ return ltiFundsBuffer;}
