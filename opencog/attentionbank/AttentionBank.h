@@ -110,9 +110,9 @@ public:
     AttentionBank(AtomSpace*);
     ~AttentionBank();
 
-#ifdef ECAN_EXPERIMENT
+//#ifdef ECAN_EXPERIMENT
     std::map<Handle, AttentionValue::sti_t> stimulusRec;
-#endif
+//#endif
 
     /**
      * Provide ability for others to find out about atoms that cross in or
@@ -193,7 +193,7 @@ public:
      * @return STI funds available
      */
     AttentionValue::sti_t getSTIFunds() const { return fundsSTI; }
-
+    
     /**
      * Get the LTI funds available in the AttentionBank pool.
      *
