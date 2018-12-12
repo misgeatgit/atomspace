@@ -145,15 +145,11 @@ ValuePtr SchemeSmob::make_value (Type t, SCM svalue_list)
 		return valueserver().create(t, valist);
 	}
 
-	if (OCTO_VALUE == t)
-	{
-		SCM sl = svalue_list;
-		SCM satom = SCM_CAR(sl);
-		SCM svalue = SCM_CDR(sl);
-		Handle hlist = verify_handle(satom, "cog-new-value", 2);
+	if (OCTO_VALUE == t) {
+		SCM satom = SCM_CAR(svalue_list);
+		Handle hlist = verify_handle(satom, "cog-new-value",1);
 		HandleSeq hseq = hlist->getOutgoingSet();
-		std::vector<double> valist = verify_float_list(svalue, "cog-new-value", 2);
-		return valueserver().create(t, hseq, valist);
+		return valueserver().create(t,hseq);
 	}
 
 	if (RANDOM_STREAM == t)
